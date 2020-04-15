@@ -1,0 +1,294 @@
+// Libraries
+@import "bourbon";
+@import "neat";
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Sans+Pro");
+
+// Colors
+$athensgray: #ECECEE;
+$blueribbon: #0659f4;
+$brightgray: #373D46;
+$lynch: #6C7C95;
+$graychateau: #9EA1A7;
+$logan: #AAB0CB;
+
+// Base
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    font-size: 1em;
+    // Scale font-size for mobile
+    @media(max-width: em(480px)) {
+        font-size: 1.125em;
+    }
+}
+
+body {
+    // Thanks, SubtlePatterns.com!
+    background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/grey_wash_wall.png");
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 4rem;
+    position: relative;
+}
+
+// Checkout
+.checkout {
+    @include outer-container(24rem);    
+    background-color: $athensgray;
+    border-radius: .25rem;
+    box-shadow: 0 0 8em $brightgray;
+    min-width: 20rem;
+    // Base width @ 320px
+    &__inner {
+        @include outer-container(20rem);
+        bottom: 2em;
+        position: relative;
+    }
+}
+
+// Credit Card
+.card {   
+    border-radius: 1rem;
+    color: $athensgray;
+    font-family: 'Droid Sans Mono', monospace;
+    height: 12.611rem;
+    margin-bottom: 2rem;
+    position: relative;
+    text-transform: uppercase;
+    width: 20rem;
+    
+    // Card front
+    &__front {
+        height: 50%;
+        padding: .5rem 1.5rem 0;
+        position: relative;
+        top: 50%;
+        
+        // Card Labels
+        &:before,
+        &:after {            
+            content: "";
+            bottom: 2rem;
+            color: $graychateau;
+            font-size: .5rem;
+            position: absolute;            
+        }
+        &:before {
+            content: "Card Holder"
+        }
+        &:after {
+            content: "Expires";
+            right: 1.5rem;
+        }
+    }
+    
+    // Logo
+    &__logo {
+        background-image: url("https://s32.postimg.org/9g0hrlhyt/visa_logo.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 2.75rem;
+        position: absolute;
+        width: 4rem;
+        z-index: 3;
+        
+        // Logo modifiers
+        &.top-right {
+            top: -6rem;
+            right: 1rem;
+        }
+        &.bottom-right {
+            bottom: .75rem;
+            right: 1rem;
+        }
+    }
+    &__chip {
+        background: url("http://s32.postimg.org/bs9qd2q05/card_chip.png") no-repeat center center;
+        background-size: cover;
+        height: 3rem;
+        left: 1.4rem;
+        position: absolute;
+        top: -3rem;
+        width: 3rem;
+    }
+    &__number {
+        font-size: 1.325rem;
+        left: 1.5rem;
+        letter-spacing: .1rem;
+        position: absolute;
+    }
+    &__holder-name {
+        bottom: 1rem;
+        display: inline-block;
+        float: left;
+        font-size: .8rem;
+        left: 1.5rem;
+        max-width: 14rem;
+        overflow: hidden;
+        position: absolute;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    &__exp {
+        bottom: 1rem;
+        display: inline-block;
+        float: right;
+        font-size: .8rem;
+        position: absolute;
+        right: 1.5rem;
+    }
+    &__strip {
+        background-color: #222;
+        height: 2rem;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+    &__ccv {
+        background-color: #fff;
+        border-radius: .25rem;
+        color: $brightgray;
+        font-size: .75rem;
+        font-style: italic;
+        font-weight: 600;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        margin: 1.5rem auto 0;
+        max-width: 17rem;        
+        padding-right: .5rem;
+        position: relative;
+        text-align: right;
+        
+        &:before {
+            content: "CCV";
+            color: $athensgray;
+            font-size: .5rem;
+            font-style: normal;
+            font-weight: 400;
+            position: absolute;
+            right: .5rem;
+            top: -1.25rem;
+        }
+    }
+}
+
+// Flip
+.flip {
+    @include transition(250ms ease);
+    border-radius: 1rem;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 100%;
+    
+    // Show/Hide
+    &__front,
+    &__back {
+        @include transition(250ms ease);
+        background-color: $brightgray;
+        border-radius: 1rem;
+        left: 0;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        visibility: hidden;
+        z-index: 1;
+        &.shown {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+    }
+    &__back {
+        transform: rotateY(180deg);
+    }
+}
+
+// Form
+.form {
+    padding: 0 1rem;
+    
+    // Lobotomized Owl selector (Google it) for fieldset elements
+    > * + * {
+        margin-top: 1rem;
+    }
+    
+    // Form labels
+    &__label {
+        display: block;
+        font-size: .75rem;
+        margin-bottom: .25rem;
+        max-width: 8rem;
+        text-transform: uppercase;
+    }
+    
+    // Form elements
+    &__input,
+    &__select,
+    &__btn {        
+        background-color: transparent;
+        border: 1px solid rgba($graychateau, .5);
+        border-radius: .25rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        height: 2rem;
+        line-height: normal;
+        outline: none;
+        margin: 0;
+        padding: .25rem;
+        
+        // Remove vendor styling
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        
+        // Input states
+        &:active,
+        &:hover,
+        &:focus {
+            outline: none;
+        }        
+    }
+    
+    // Inputs
+    &__input,
+    &__select {
+        
+        // Input modifiers
+        &.small {
+            @include span-columns(3);
+        }
+        &.large {
+            @include fill-parent();
+        }
+    }
+    
+    // Form buttons
+    &__btn {
+        &.submit {
+            @include fill-parent();
+            background-color: $blueribbon;
+            box-shadow: 0 2px 4px $graychateau;            
+            color: $athensgray;            
+            cursor: pointer;            
+            height: auto;
+            margin-top: 1rem;
+            padding: 1rem;
+            position: relative;
+            text-transform: uppercase;
+        }
+        i {
+            position: relative;
+            top: .05rem;
+            margin-left: .5rem;
+        }
+    }
+}

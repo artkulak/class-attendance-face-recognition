@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lecturer Panel</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/lecturer.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+<div class = "limiter">
+	<div class = "container-lecturer">
+		<div class = "wrap-lecturer p-l-55 p-r-55 p-t-65 p-b-50">	
+			<div class = "two-columns">
+				<div class = "left-col">
+					<div class = "upper-row">
+						<span class = "time"> 
+						<b> {{ time }} </b>
+						</span>
+
+						<div class = "upper-btns-container">
+							<button class="add-btn" data-toggle = "modal" data-target="#addStudent">
+											Add Munually
+							</button>
+
+							<button class="delete-btn" data-toggle = "modal" data-target="#deleteStudent">
+											Delete From Lesson
+							</button>
+						</div>
+					</div>
+					
+					<div class = "attendace-state-container p-l-25 p-t-30 p-b-30">
+						<span class = "students-inclass">
+							{% for student in students %}
+								<b> {{student[0]}} </b>: {{student[1]}}<br>
+							{% endfor %}
+						</span>
+			        </div>
+			     </div>
+
+
+			<div class = "right-btn-container p-l-20 p-t-40">
+				<form action = "/get_attendance" method = "post" data-toggle = "modal">
+					<button action = "submit" class="take-attendance-btn">
+								Take attendance
+					</button>
+				</form>
+				<form action="/send_emails" method="post">
+					<button action = "submit" class="emails-btn">
+									Send Emails
+					</button>
+				</form>
+			</div>
+		</div>
+		</div>	
+	</div>	
+</div>
+
+
+<!-- Student Add -->
+<div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Student to Lesson</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+	      <div class="modal-body">
+	        <input class="form_input" type = "text" name = "username"  placeholder="user"/> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="submit" name = "stud-add" value = 1 class="btn btn-primary">Add</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Student Delete -->
+<div class="modal fade" id="deleteStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Remove Student from Lesson</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+	      <div class="modal-body">
+	        <input class="form_input" type = "text" name = "username"  placeholder="user"/> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="submit" name = "stud-delete" value = 1 class="btn btn-primary">Remove</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+
+	
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js/main.js"></script>
+<!--===============================================================================================-->
+
+</body>
+</html>

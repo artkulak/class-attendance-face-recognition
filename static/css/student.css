@@ -1,0 +1,196 @@
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: OpenSans-Regular, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+	font-family: OpenSans-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+p {
+	font-family: OpenSans-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input::-webkit-input-placeholder { color: #666666;}
+input:-moz-placeholder { color: #666666;}
+input::-moz-placeholder { color: #666666;}
+input:-ms-input-placeholder { color: #666666;}
+
+textarea::-webkit-input-placeholder { color: #666666;}
+textarea:-moz-placeholder { color: #666666;}
+textarea::-moz-placeholder { color: #666666;}
+textarea:-ms-input-placeholder { color: #666666;}
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+.txt1 {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #999999;
+}
+
+.txt2 {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #4272d7;
+}
+
+.hov1:hover {
+  text-decoration: underline;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-student100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #e9faff;
+}
+
+.wrap-student100 {
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+/*==================================================================
+[ Table ]*/
+
+.student100-greeting {
+  display: block;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  color: #555555;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.student100-explanation {
+  display: block;
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.student100-WeekDays {
+  display: block;
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  text-align: center;
+}
+

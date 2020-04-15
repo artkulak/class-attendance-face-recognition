@@ -1,0 +1,463 @@
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: OpenSans-Regular, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+	font-family: OpenSans-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+p {
+	font-family: OpenSans-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input::-webkit-input-placeholder { color: #666666;}
+input:-moz-placeholder { color: #666666;}
+input::-moz-placeholder { color: #666666;}
+input:-ms-input-placeholder { color: #666666;}
+
+textarea::-webkit-input-placeholder { color: #666666;}
+textarea:-moz-placeholder { color: #666666;}
+textarea::-moz-placeholder { color: #666666;}
+textarea:-ms-input-placeholder { color: #666666;}
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+.txt1 {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #999999;
+}
+
+.txt2 {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #4272d7;
+}
+
+.hov1:hover {
+  text-decoration: underline;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ base ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.container-admin {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #e9faff;
+}
+
+.wrap-admin {
+  width: 1000px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.camera-image-container {
+  width:500px;
+  height: 300px;
+  border-style: solid;
+  border-color: #333333;
+  border-width: 1px;
+  overflow: hidden;
+
+}
+
+.first-row-wrapper {
+   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.management-btn-container {
+  font-size: 14px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.management-text {
+  font-size: 16px;
+}
+
+
+.upper-btns-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.start-btn{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #4272d7;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.start-btn:hover {
+  background-color: #333333;
+}
+
+.stop-btn{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #4272d7;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.stop-btn:hover {
+  background-color: #333333;
+}
+
+
+.attend-btn{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  background-color: #4272d7;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.attend-btn:hover {
+  background-color: #333333;
+}
+
+
+.second-row-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Second row buttons ]*/
+
+.lecturer-btns-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.student-btns-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.student-data-container,
+.lecturer-data-container {
+  background: #f4f7f8;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.student-container,
+.lecturer-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.lectur-add-btn,
+.lectur-delete-btn,
+.lectur-update-btn {
+  margin:10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  background-color: #4272d7;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.lectur-add-btn:hover,
+.lectur-delete-btn:hover,
+.lectur-update-btn:hover {
+  background-color: #333333;
+}
+
+
+
+.student-add-btn,
+.student-delete-btn,
+.student-update-btn {
+  margin: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  background-color: #4272d7;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.student-add-btn:hover,
+.student-delete-btn:hover,
+.student-update-btn:hover {
+  background-color: #333333;
+}
+
+
+.third-row-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.lectur-table-title,
+.stud-table-title {
+   display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.lectures-table-wrapper,
+.students-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.lectures-table,
+.students-table {
+  border-style: solid;
+  border-color: #333333;
+  border-width: 1px;
+  width: 250px;
+  overflow: hidden;
+}
+
+
+.take-photo-lecturer,
+.take-photo-student {
+  margin:10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  background-color: #4272d7;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+

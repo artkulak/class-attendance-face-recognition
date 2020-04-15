@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Admin Panel</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/admin.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+<div class = "limiter">
+	<div class = "container-admin">
+
+		<div class = "wrap-admin p-l-55 p-r-55 p-t-65 p-b-50">
+			<div class= "first-row-wrapper">
+				<div class = "camera-image-container">
+					<img src = "{{ url_for('videostream') }}">
+				</div>
+
+				<div class = "management-btn-container p-l-100 p-t-55">
+					<span class = 'management-text p-b-15'> 
+						Server management
+					</span>
+
+
+					<div class = "upper-btns-container">
+						<form action = "/start_server"  data-toggle = "modal">
+							<button class="start-btn p-l-30 p-r-30" type = "submit">
+											Start Server
+							</button>
+						</form>
+						<form action = "/stop_server"  data-toggle = "modal">
+							<button class="stop-btn p-l-30 p-r-30" type = "submit">
+											Stop Server
+							</button>
+						</form>
+
+
+					</div>
+
+				
+					<form class = "attend-btn-form" action = "/train_model" method = "post" data-toggle = "modal">
+						<button action = "submit" class = "attend-btn p-t-35 p-l-20">
+							Train Model
+						</button>
+					</form>
+
+				</div>
+			</div>
+
+			<div class = "second-row-wrapper p-t-50">
+				<div class = "lecturer-container">
+					<div class = "lecturer-btns-container">
+						<button class="lectur-add-btn p-l-20 p-r-20" data-toggle = "modal" data-target="#addLecturer">
+										Add
+						</button>
+
+						<button class="lectur-delete-btn p-l-20 p-r-20" data-toggle = "modal" data-target="#deleteLecturer">
+										Delete
+						</button>
+
+					</div>
+					<!-- <div class = "lecturer-data-container p-l-10">
+				        <input class="form_input" name="username" placeholder="user"/>
+				        <input class="form_input" name="pass" placeholder="password"/>
+				        <input class="form_input" name="mail" placeholder="user@gmail.com"/>
+				        <input class="form_input" name="second-mail" placeholder="work@gmail.com"/>
+					</div> -->
+				</div>
+
+
+				<div class = "student-container">
+					<div class = "student-btns-container">
+						<button class="student-add-btn p-l-20 p-r-20" type = "submit" data-toggle = "modal" data-target="#addStudent">
+										Add
+						</button>
+
+						<button class="student-delete-btn p-l-20 p-r-20" type = "submit" data-toggle = "modal" data-target="#deleteStudent">
+										Delete
+						</button>
+					</div>
+
+					<!-- <div class = "student-data-container p-l-10">
+				        <input class="form_input" name = "username"  placeholder="user"/>
+				        <input class="form_input" name = "pass" placeholder="password"/>
+				        <input class="form_input" name = "mail" placeholder="user@gmail.com"/>
+				        <input class="form_input" name = "second-mail" placeholder="parent@gmail.com"/>
+					</div> -->
+				</div>
+
+			</div>
+
+
+			<div class = "third-row-wrapper">
+				<div>
+					<span class = "lectur-table-title p-t-20"> <b> Lecturers </b> </span>
+					{% for lectur in lecturers %}
+					<b> Name: </b> {{ lectur[0] }}    <b> Email: </b> {{ lectur[1] }} <br>
+					{% endfor %}
+					<!-- <div class = "lectures-table p-t-200">
+					</div> -->
+				</div>
+
+				<div>
+					<span class = "stud-table-title p-t-20"> <b> Students </b> </span>
+					{% for student in students %}
+					<b> Name: </b> {{ student[0] }}    <b> Email: </b> {{ student[1] }} <br>
+					{% endfor %}
+					<!-- <div class = "students-table p-t-200">
+					</div> -->
+				</div>
+
+			</div>
+		</div>
+		
+	</div>	
+</div>
+
+
+<!-- Student Add -->
+<div class="modal fade" id="addLecturer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Lecturer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+	      <div class="modal-body">
+	        <input class="form_input" type = "text" name = "username"  placeholder="user"/> 
+	        <input class="form_input" type = "text" name = "pass" placeholder="password"/> 
+	        <input class="form_input" type = "text" name = "mail" placeholder="user@gmail.com"/> 
+	        <input class="form_input" type = "text" name = "second-mail" placeholder="second-mail@edu.com"/> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="submit" name = "lect-create" value = 1 class="btn btn-primary">Take photo and save</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Lecturer Delete -->
+<div class="modal fade" id="deleteLecturer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Lecturer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+	      <div class="modal-body">
+	        <input class="form_input" type = "text" name = "username"  placeholder="user"/> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="submit" name = "lect-delete" value = 1 class="btn btn-primary">Find and delete</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Student Add -->
+<div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+	      <div class="modal-body">
+	        <input class="form_input" type = "text" name = "username"  placeholder="user"/> 
+	        <input class="form_input" type = "text" name = "pass" placeholder="password"/> 
+	        <input class="form_input" type = "text" name = "mail" placeholder="user@gmail.com"/> 
+	        <input class="form_input" type = "text" name = "second-mail" placeholder="parent-mail@edu.com"/>
+	        <input class="form_input" type = "text" name = "lecturer" placeholder="lecturer"/> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="submit" name = "stud-create" value = 1 class="btn btn-primary">Take photo and save</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Student Delete -->
+<div class="modal fade" id="deleteStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+	      <div class="modal-body">
+	        <input class="form_input" type = "text" name = "username"  placeholder="user"/> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="submit" name = "stud-delete" value = 1 class="btn btn-primary">Find and delete</button>
+	      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+	
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js/main.js"></script>
+<!--===============================================================================================-->
+
+</body>
+</html>

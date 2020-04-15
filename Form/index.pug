@@ -1,0 +1,101 @@
+//-
+    ## Inspiration (Thanks guys!):
+        Supah -- https://dribbble.com/shots/2522482-Daily-UI-002-Credit-Card-Checkout
+        plearns -- https://dribbble.com/shots/2326654-Credit-Card-Current-Balance            
+    
+    ## Assets
+        Background image credit to SubtlePatterns.com
+        Logo credit to VISA
+        
+    ## Improvement Ideas:
+        - Client side validation
+        - Create a Jade loop to populate the <option> tags
+        - Detect card brand by first card number (e.g., 3 for Amex, 4 for Visa, etc..)
+        - Hover/animations
+    
+    ## Feel free to use the code however you'd like!
+    
+    Happy coding :)
+
+// Checkout
+.checkout
+    // Checkout content
+    .checkout__inner
+        // Credit card
+        .card
+            // Flip container
+            .flip
+                // Flip front
+                .flip__front.shown
+                    // Card front
+                    .card__front
+                        // Card logo
+                        .card__logo.top-right
+                        // Card chip
+                        .card__chip
+                        // Card number
+                        .card__number
+                        // Card name
+                        .card__holder-name
+                        // Card expiration
+                        .card__exp
+                // Flip back
+                .flip__back
+                    // Card back
+                    .card__back
+                        // Card strip
+                        .card__strip
+                        // Card ccv
+                        .card__ccv
+                        // Card logo
+                        .card__logo.bottom-right
+        // Checkout form
+        form.form
+            // Card number
+            fieldset
+                label.form__label(for="card-number-1") Card number
+                input.form__input.small(id="card-number-1", type="tel", minlength="4", maxlength="4", placeholder="1234")
+                input.form__input.small(id="card-number-2", type="tel", maxlength="4", placeholder="5678")
+                input.form__input.small(id="card-number-3", type="tel", maxlength="4", placeholder="9000")
+                input.form__input.small(id="card-number-4", type="tel", maxlength="4", placeholder="4321")
+            // Card name
+            fieldset
+                label.form__label(for="card-holder-name") Card Holder
+                input.form__input.large(id="card-holder-name", type="text", placeholder="Name")
+            // Card expiration
+            fieldset
+                label.form__label(for="card-exp-month") Expiration Date
+                select.form__select.small(id="card-exp-month")
+                    option(value="") MM
+                    option(value="01") 01
+                    option(value="02") 02
+                    option(value="03") 03
+                    option(value="04") 04
+                    option(value="05") 05
+                    option(value="06") 06
+                    option(value="07") 07
+                    option(value="08") 08
+                    option(value="09") 09
+                    option(value="10") 10
+                    option(value="11") 11
+                    option(value="12") 12
+                select.form__select.small(id="card-exp-year")
+                    option(value="") YYYY
+                    option(value="16") 2016
+                    option(value="17") 2017
+                    option(value="18") 2018
+                    option(value="19") 2019
+                    option(value="20") 2020
+                    option(value="21") 2021
+                    option(value="22") 2022
+                    option(value="23") 2023
+                    option(value="24") 2024
+                    option(value="25") 2025
+            // Card ccv
+            fieldset
+                label.form__label(for="card-ccv") CCV
+                input.form__input.small(id="card-ccv", type="tel", maxlength="3", placeholder="123")
+            // Form submit
+            fieldset
+                button.form__btn.submit Submit Payment
+                    i.fa.fa-lock
